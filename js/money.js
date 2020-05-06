@@ -1,16 +1,17 @@
 // Everybody selects a random person and pay money to him
-let selectedMan;
 function payMoneyToEachOther(){
-    for (var i = 0; i < peopleC; i++) {
-        world[i].money--;
-        selectedMan = findRandomGuy(i);
-        world[selectedMan].money++;
-    }
-    for (var i = 0; i < peopleC; i++) {
-        console.log(i + " has " + world[i].money + " dollars")
-        if(world[i].money === 0){
-            console.log("person number " + i + " died!");
-        }
+    for (var personId = 0; personId < peopleC; personId++) {
+        world[personId].money *= 1 - world[personId].generousness / 3;
+        world[findRandomGuy(personId)].money *= 1 + world[personId].generousness / 3;
     }
     return world;
+}
+
+function askNeighbour(personId) {
+    console.log("askNeighbour");
+    let neighbourId;
+    if (personId === peopleC - 1){ neighbourId = 0; }
+    else { neighbourId = personId + 1; }
+    world[personId].money *= 1 + world[neighbourId].generousness;
+    world[neighbourId].money *= 1 - world[neighbourId].generousness;
 }

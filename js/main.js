@@ -1,33 +1,21 @@
 let world = [];
-let peopleC = 10;
+let peopleC = 100;
 let person = {
-    id: -1,
-    gender: 'random',
     attraction: 'random',
     generousness: 'random',
-    food: 50,
-    hunger: 50,
-    money: 10
+    food: 250,
+    gluttony: 'random',
+    money: 250,
+//    gotHelp: 0,
 };
+//let gettingHelp_max = 3;
+let foodPrice = 1.5;
 for (var i = 0; i < peopleC; i++) {
     world.push(Object.assign({}, person));
-    world[i].id = i;
 }
-function nextDay(){
-    //buyFood();
-    //eatFood();
+fillRandomProperties();
+function nextDay() {
+    eatFood();
     payMoneyToEachOther();
     return world;
-}
-// Selects a random guy
-function findRandomGuy(personHimself){
-    let randomGuyN = randomInt(0, peopleC);
-    if(randomGuyN === personHimself){
-        findRandomGuy(personHimself);
-    }
-    return randomGuyN;
-}
-// This function's random number excludes max
-function randomInt(min, max) {
-    return Math.floor(Math.random() * (max - min) ) + min;
 }
