@@ -1,33 +1,22 @@
+let world = [];
+let peopleC = 10;
 let person = {
     id: -1,
+    gender: 'random',
+    attraction: 'random',
+    generousness: 'random',
+    food: 50,
+    hunger: 50,
     money: 10
 };
-let peopleC = 9;
-let world = [];
 for (var i = 0; i < peopleC; i++) {
     world.push(Object.assign({}, person));
+    world[i].id = i;
 }
-var autoDay = setInterval(function(){
-    payMoney();
-}, 100)
 function nextDay(){
-    payMoney();
-}
-// Everybody selects a random person and pay money to him
-let selectedMan;
-function payMoney(){
-    for (var i = 0; i < peopleC; i++) {
-        world[i].money--;
-        selectedMan = findRandomGuy(i);
-        world[selectedMan].money++;
-    }
-    for (var i = 0; i < peopleC; i++) {
-        console.log(i + " has " + world[i].money + " dollars")
-        if(world[i].money === 0){
-            console.log("person number " + i + " died!");
-            clearInterval(autoDay);
-        }
-    }
+    //buyFood();
+    //eatFood();
+    payMoneyToEachOther();
     return world;
 }
 // Selects a random guy
