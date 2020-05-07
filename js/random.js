@@ -9,13 +9,13 @@ function fillRandomProperties(){
     return world;
 }
 // Selects a random guy
-function findRandomGuy(personHimself){
-    let randomGuyN = randomInt(0, peopleC);
-    if(randomGuyN === personHimself){
-        findRandomGuy(personHimself);
-    }
-    return randomGuyN;
-}
+// function findRandomGuy(personHimself){
+//     let randomGuyN = randomInt(0, peopleC);
+//     if(randomGuyN === personHimself || !world[randomGuyN].alive){
+//         findRandomGuy(personHimself);
+//     }
+//     return randomGuyN;
+// }
 // This function gives a random integer between min(included) and max(excluded)
 function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;

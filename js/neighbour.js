@@ -1,7 +1,13 @@
 function whoIsNeighbour(personId) {
     let neighbourId;
-    if (personId === peopleC - 1) { neighbourId = 0; }
-    else { neighbourId = personId + 1; }
+    for (var i = personId + 1; i != personId; i++) {
+        if (i >= peopleC - 1) { i = 0; }
+        if (world[i].alive) {
+            neighbourId = i;
+            console.log("person number " + personId + " selected neighbour number " + neighbourId);
+            break;
+        }
+    }
     return neighbourId;
 }
 
@@ -21,7 +27,7 @@ function isNeighbourGenerous(personId) {
 function askNeighbour(personId, reason){
     let neighbourId = whoIsNeighbour(personId);
     if ( isNeighbourGenerous(personId) ) {
-        console.log(`${personId} asked for ${reason}. He got help!`);
+        // console.log(`${personId} asked for ${reason}. He got help!`);
         switch (reason) {
             case 'food':
                 let foodAmount = world[neighbourId].generousness * world[neighbourId].food;
@@ -36,7 +42,7 @@ function askNeighbour(personId, reason){
         }
     }
     else {
-        console.log(`${personId} asked for ${reason}. He did NOT get help!`);
+        // console.log(`${personId} asked for ${reason}. He did NOT get help!`);
         die(personId, 'starvation');
     }
 }

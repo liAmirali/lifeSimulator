@@ -1,17 +1,14 @@
-// Everybody selects a random person and pay money to him
+// Everybody pays money to their neighbour (for no reason :D)
 function payMoneyToEachOther(){
     for (var personId = 0; personId < peopleC; personId++) {
-        world[personId].money *= 1 - world[personId].generousness;
-        world[findRandomGuy(personId)].money *= 1 + world[personId].generousness;
+        if (world[personId].money > 1e4) {
+            world[whoIsNeighbour(personId)].money += world[personId].money / 2;
+            world[personId].money /= 2;
+        }
+        else{
+            world[personId].money *= 1 - world[personId].generousness;
+            world[1].money *= 1 + world[personId].generousness;
+        }
     }
-    return world
-}
-
-function askNeighbour(personId) {
-    clearInterval()
-    let neighbourId;
-    if (personId === peopleC - 1){ neighbourId = 0; }
-    else { neighbourId = personId + 1; }
-    world[personId].money *= 1 + world[neighbourId].generousness;
-    world[neighbourId].money *= 1 - world[neighbourId].generousness;
+    return world;
 }

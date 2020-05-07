@@ -1,11 +1,12 @@
 let world = [];
-let peopleC = 100;
+let peopleC = 10;
 let person = {
-    attraction: 'random',
+    strength: 'random',
     generousness: 'random',
     food: 1000,
     gluttony: 'random',
     money: 1000,
+    alive: true,
 //    gotHelp: 0,
 };
 //let gettingHelp_max = 3;
@@ -14,15 +15,21 @@ for (var i = 0; i < peopleC; i++) {
     world.push(Object.assign({}, person));
 }
 fillRandomProperties();
-console.log(`gluttony: 0 = ${world[0].gluttony} , 1 = ${world[1].gluttony}`)
-console.log(`generousness: 0 = ${world[0].generousness} , 1 = ${world[1].generousness}`)
 function nextDay() {
-    eatFood();
-    payMoneyToEachOther();
-    console.log(`Money: 0 = ${world[0].money} , 1 = ${world[1].money}`)
-    console.log(`Food: 0 = ${world[0].food} , 1 = ${world[1].food}`)
+    let aliveCount;
+    for (var i = 0; i < peopleC; i++) {
+        if (world[i].alive) { aliveCount++; }
+    }
+    if (aliveCount === 1){
+        console.log("FOLANI WON.");
+        clearInterval(autoDay);
+    }
+    else {
+        eatFood();
+        payMoneyToEachOther();
+    }
     return world;
 }
-var autoDay = setInterval(function (){
-    nextDay();
-}, 10);
+// var autoDay = setInterval(function (){
+//     nextDay();
+// }, 1000);
