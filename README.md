@@ -14,5 +14,5 @@ Current properties are:
 1) attraction: This specifies how attractive a person is. This can affect their relation with other people or something that I don't know yet :).
 2) generousness: This specifies how generous a person is. This can be about giving money or food to others.
 3) food: The amount of food each person has.
-4) gluttony: This specifies how much a person praise his stomach. 100 shows no one can be alive from him and 0 is being so convinced!
+4) gluttony: This specifies how much a person praise his stomach. 0.99 shows no one can be alive from him and 0.01 is being so convinced!
 5) money: the amount of money each person has.

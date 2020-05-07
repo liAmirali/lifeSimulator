@@ -20,9 +20,9 @@ function findRandomGuy(personHimself){
 function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
 }
-// This function gives a random decimal between 1.0... and 9.9...
+// This function gives a random decimal between 0.00... and 9.99...
 // decimals parameter determines the number of digits after decimal point
 // NOTE: 10 means 1 digit after it, 100 means 2 digts, 1000 means 3 digits and so on.
 function randomDecimal(decimals){
-    return Math.floor(Math.random() * decimals) / decimals
+    return Math.floor(Math.random() * decimals) / decimals;
 }
