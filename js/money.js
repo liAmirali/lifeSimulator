@@ -7,7 +7,7 @@ function payMoneyToEachOther(){
         }
         else{
             world[personId].money *= 1 - world[personId].generousness;
-            world[1].money *= 1 + world[personId].generousness;
+            world[whoIsNeighbour(personId)].money *= 1 + world[personId].generousness;
         }
     }
     return world;

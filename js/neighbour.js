@@ -4,7 +4,7 @@ function whoIsNeighbour(personId) {
         if (i >= peopleC - 1) { i = 0; }
         if (world[i].alive) {
             neighbourId = i;
-            console.log("person number " + personId + " selected neighbour number " + neighbourId);
+            // console.log("person number " + personId + " selected neighbour number " + neighbourId);
             break;
         }
     }
