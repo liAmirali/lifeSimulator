@@ -21,4 +21,4 @@ And then I said what about being some bits! Our existence may just be some compu
 We treat like a bunch of if else statements. If you felt hungry, then eat food! Or if you're out of money, go to work! That's what 600-BC philosophers were looking for, the causality!<br>
 Our behavior are based on our personality, right? What are our personalities? What are they in a code? Well, they can be a lot of complicated key-value pairs in the defined object of us. The key-value pairs can be passed into functions and return some result and that's how we behave in different situations.
 <br><br><br>
-I may add more things to this Philosophy Time section over time. Be 
+I may add more things to this Philosophy Time section over time. Be more thoughtful about this. This complicated thing we are living in may just be a thought, or a code snippet, or illusion, or a game, nobody knows...
