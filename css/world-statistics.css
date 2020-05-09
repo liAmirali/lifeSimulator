@@ -1,19 +1,17 @@
 #world-statistics{
-  height: 80%;
+  height: 90%;
   overflow-y: scroll;
-  /* background-color: #111117; */
-  background-color: #ffffff;
+  background-color: #111117;
 }
 
 .person-info{
   width: 250px;
-  height: 180px;
+  height: 200px;
   margin-top: 20px;
   margin-left: 20px;
   float: left;
   background-color: #202733;
   border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(35,219,249,0.25), 0 5px 10px rgba(255,100,189,0.22);
 }
 .person-info .idCard{
   width: 100%;
@@ -54,32 +52,28 @@
 }
 .person-info .idCard .alive-dead p{
   padding-left: 15px;
-  font-family: 'PilkiusRomeus'
+  font-family: 'PilkiusRomeus';
 }
 .person-info .personality{
   height: 45%;
   padding-left: 15px;
-  position: relative;
-  /* top in js/frontend.js */
 }
 .person-info .personality p{
   font-size: 15px;
   font-family: monospace;
-}
-.person-info .spacer{
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(to right, #23DBF9 0%, #FF64BD 100%);
+  position: relative;
+  /* top in js/frontend.js */
 }
 .person-info .supply{
   height: 25%;
   padding-left: 15px;
+  border-top: 1px solid;
+  border-image-source: linear-gradient(to right, #23dbf9 0%, #ff64bd 100%);
+  border-image-slice: 1;
 }
 .person-info .supply p{
-  display: inline-block;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
   font-family: monospace;
   font-size: 15px;
+  position: relative;
+  /* top in js/frontend.js */
 }

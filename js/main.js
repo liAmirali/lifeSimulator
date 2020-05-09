@@ -1,5 +1,6 @@
 let world = [];
-let peopleC = 8;
+let day = 0;
+let peopleC = 20;
 let person = {
     strength: 'random',
     generousness: 'random',
@@ -17,25 +18,23 @@ for (var i = 0; i < peopleC; i++) {
     world.push(Object.assign({}, person));
 }
 fillRandomProperties();
+function countAlive() {
+    let aliveC = 0;
+    for (var i = 0; i < peopleC; i++) {
+        if (world[i].alive) { aliveC++; }
+    }
+    return aliveC;
+}
 setTimeout(function() {
-    createCard(peopleC);
+    createFrontend(peopleC);
 }, 500);
 function nextDay() {
-    let aliveCount;
-    for (var i = 0; i < peopleC; i++) {
-        if (world[i].alive) { aliveCount++; }
-    }
-    if (aliveCount === 1){
-        console.log("FOLANI WON.");
-        clearInterval(autoDay);
-    }
-    else {
-        eatFood();
-        payMoneyToEachOther();
-    }
+    eatFood();
+    payMoneyToEachOther();
+    day++;
     return world;
 }
 var autoDay = setInterval(function (){
-    // refreshCard();
-    // nextDay();
+    nextDay();
+    refreshStat();
 }, 2000);

@@ -1,5 +1,5 @@
-let rawCard = '<div class="person-info"><div class="idCard"><div class="index"><p></p></div><div class="name"><p></p></div><div class="alive-dead"><p>Alive</p></div></div><div class="personality"></div><div class="spacer"></div><div class="supply"></div></div>'
-function createCard(cardCount) {
+let rawCard = '<div class="person-info"><div class="idCard"><div class="index"><p></p></div><div class="name"><p></p></div><div class="alive-dead"><p>Alive</p></div></div><div class="personality"></div><div class="supply"></div></div>'
+function createFrontend(cardCount) {
     for (var i = 0; i < cardCount; i++) {
         $('#world-statistics').append(rawCard);
         $(`.person-info:nth-child(${i+1}) .index p`).text(i);
@@ -14,12 +14,18 @@ function createCard(cardCount) {
             $(`.person-info:nth-child(${i+1}) .supply p:nth-child(${j+1}) span:nth-child(1)`).text(supply[j]);
         }
         let a = $(`.person-info:nth-child(${i+1}) .personality`);
-        a.css('top', (a.height() - a.children('p').length * a.children('p').height())/2);
+        a.children('p').css('top', (a.height() - a.children('p').length * a.children('p').height())/2);
+
+        a = $(`.person-info:nth-child(${i+1}) .supply`);
+        a.children('p').css('top', (a.height() - a.children('p').length * a.children('p').height())/2);
     }
 }
 
-function refreshCard() {
-    for (var i = 0; i < world.length; i++) {
+function refreshStat() {
+    $('#navbar .aliveCount p span:nth-child(1)').text(countAlive());
+    $('#navbar .aliveCount p span:nth-child(2)').text(peopleC);
+    $('#navbar .passedDays p span:nth-child(1)').text(day);
+    for (var i = 0; i < peopleC; i++) {
         if (world[i].alive) {
             $(`.person-info:nth-child(${i+1}) .alive-dead p`).text('Alive');
         }
