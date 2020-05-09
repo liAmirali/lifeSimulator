@@ -1,5 +1,5 @@
 let world = [];
-let peopleC = 10;
+let peopleC = 8;
 let person = {
     strength: 'random',
     generousness: 'random',
@@ -36,6 +36,6 @@ function nextDay() {
     return world;
 }
 var autoDay = setInterval(function (){
-    refreshCard();
-    nextDay();
+    // refreshCard();
+    // nextDay();
 }, 2000);
