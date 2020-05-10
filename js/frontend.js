@@ -33,7 +33,7 @@ function refreshStat() {
             $(`.person-info:nth-child(${i+1}) .alive-dead p`).text('Dead');
         }
         for (var j = 0; j < supply.length; j++) {
-            $(`.person-info:nth-child(${i+1}) .supply p:nth-child(${j+1}) span:nth-child(2)`).text(Math.floor(world[i][supply[j]]));
+            $(`.person-info:nth-child(${i+1}) .supply p:nth-child(${j+1}) span:nth-child(2)`).text(Math.round(world[i][supply[j]]));
         }
     }
 }
