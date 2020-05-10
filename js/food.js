@@ -1,29 +1,30 @@
 function eatFood() {
     for (var personId = 0; personId < peopleC; personId++) {
         if (world[personId].alive) {
-            if (world[personId].food < 10) {
-                buyFood(personId);
+            if (world[personId].food >= world[personId].gluttony * 100) {
+                world[personId].food -= world[personId].gluttony * 100;
             }
             else{
-                world[personId].food *= 1 - world[personId].gluttony;
+                buyFood(personId);
             }
         }
         else{ continue; }
     }
-    return world;
 }
 
 function buyFood(personId) {
-    // console.log("******** " + personId + " needs to buy food. Money: " + world[personId].money);
     let foodAmount = world[personId].gluttony * 100;
-    // console.log(`******** ${personId} wanna buy ` + world[personId].gluttony * 100);
-    if (world[personId].money > foodAmount * foodPrice) {
-        // console.log(`******** ${personId} BOUGHT IT.`)
-        world[personId].food += foodAmount;
+    if (world[personId].money >= foodAmount * foodPrice) {
         world[personId].money -= foodAmount * foodPrice;
+        world[personId].food += foodAmount;
     }
     else {
-        // console.log(`******** ${personId} COULDN'T BUY FOOD.`);
-        askNeighbour(personId, 'food');
+        let helpedAmount = askNeighbor(personId, 'food', foodAmount);
+        if (helpedAmount === 0) {
+            die(personId, 'starvation');
+        }
+        else{
+            world[personId].food += helpedAmount;
+        }
     }
 }
