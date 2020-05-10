@@ -5,13 +5,15 @@ This is a Javascript zero-player game which simulates our lives.
 To run this pseudo-life game, download the files and open index.html in your browser. Then open the Console (by Ctrl+Shift+k in Firefox and Ctrl+Shift+J in Chrome). There you can see what happens to the people.
 
 ## Things you see in this world
-world (array): This is the main thing! The world where humans live!<br><br>
+world (array): This is the main thing! The world where humans live!
+
 person (object): My humans are treated as objects! :D They have the following properties:
 1) strength: It defines how physically strong a person is. It's good to be strong if rich and stingy people are annoying you or you may live longer during starvation ;).
 2) generousness: This specifies how generous a person is. This can be about giving money or food to others.
 3) food: The amount of food each person has.
 4) gluttony: This specifies how much a person praise his stomach. 0.99 shows no one can be alive from him and 0.01 is being so convinced!
-5) money: The amount of money each person has. Anyone needs to buy food!<br><br>
+5) money: The amount of money each person has. Anyone needs to buy food!
+
 neighbor: Someone's neighbor is the person whose index is one more then the person himself. For example person \#2 is the person \#1's neighbor. Note that last person's neighbor is person \#0.
 
 # Philosophy Time
