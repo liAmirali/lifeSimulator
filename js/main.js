@@ -5,7 +5,7 @@ let world = [];
 let day = 0;
 
 // Number of people who will born at first
-let peopleC = 20;
+let peopleC = 30;
 
 // Human default properties and supplies
 // 'random' means that the peroperty value will be filled in random.js
