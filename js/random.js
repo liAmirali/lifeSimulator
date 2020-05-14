@@ -9,8 +9,9 @@ function fillRandomProperties(){
     return world;
 }
 // Selects a random guy
+let randomGuyN;
 function findRandomGuy(personHimself){
-    let randomGuyN = randomInt(0, peopleC);
+    randomGuyN = randomInt(0, peopleC);
     if(randomGuyN === personHimself || !world[randomGuyN].alive){
         findRandomGuy(personHimself);
     }
