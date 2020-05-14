@@ -5,12 +5,11 @@ let world = [];
 let day = 0;
 
 // Number of people who will born at first
-let peopleC = 30;
+let peopleC = 10;
 
 // Human default properties and supplies
 // 'random' means that the peroperty value will be filled in random.js
 let person = {
-    strength: 'random',
     generousness: 'random',
     food: 100,
     gluttony: 'random',
@@ -19,7 +18,7 @@ let person = {
 };
 
 // Which properties in person object are about personality or supplis?
-let personality = ['strength', 'generousness', 'gluttony'];
+let personality = ['generousness', 'gluttony'];
 let supply = ['food', 'money'];
 
 // How much should each person pay for 1 food?
@@ -52,15 +51,11 @@ function nextDay() {
 }
 
 var autoDay = setInterval(function (){
-    if (countAlive() === 1) {
+    if (!checkSurvivor()) {
+        nextDay();
         refreshStat();
-        clearInterval(autoDay);
-        let survivedGuy;
-        for (var i = 0; i < peopleC; i++) {
-            if (world[i].alive) { survivedGuy = i; break;}
-        }
-        alert("Person \#" + i + " survived!!!");
     }
-    nextDay();
-    refreshStat();
+    else{
+        clearInterval(autoDay);
+    }
 }, 2000);
