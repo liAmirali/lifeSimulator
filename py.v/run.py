@@ -2,15 +2,15 @@
 
 from random import randint
 from time import sleep
+from main import *
 import death
 import food
-from main import *
+import money
 
 # And the creation begins..
 for wid in range(0, peopleC):
-    newborn = person(randint(1, 99), randint(1, 99))
+    newborn = person(wid, randint(1, 99), randint(1, 99))
     world.append(newborn)
-print(world)
 
 def countAlive():
     aliveC = 0
@@ -21,9 +21,11 @@ def countAlive():
 
 def nextDay():
     global day
+    print("*** DAY " + str(day) + " ***")
 
     for wid in range(0, peopleC):
         if world[wid].alive:
+            money.payTax(wid, dailyTaxMethod)
             if food.eat(wid) == True:
                 print("person #"+str(wid)+": could EAT food")
             else:
@@ -32,11 +34,13 @@ def nextDay():
         else:
             print("Person #"+str(wid)+": was dead already")
 
-    #payMoneyToEachOther()
     day += 1
-    print("day " + str(day), world)
+    print(world)
     return world
 
 while countAlive() > 1:
     nextDay()
-    sleep(1)
+    sleep(3)
+
+print("#### A GUY SURVIVED ####")
+print(world)
