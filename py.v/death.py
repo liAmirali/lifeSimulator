@@ -1,4 +1,5 @@
 from main import *
+
 def die(wid, cause):
     print('Person #%s: DIED because of %s.' % (wid, cause))
     world[wid].alive = False
