@@ -33,4 +33,6 @@ foodPrice = 2
 # 0) torandom => Computer selects a random alive guy (and also not himself)
 # 1) toneighbor => Computer finds the alive neighbor of 
 #    person #wid by neighbor.whoIs(wid) function
-dailyTaxMethod = 'torandom'
+dailyTaxMethod = 'toneighbor'
+
+survivor_wid = None

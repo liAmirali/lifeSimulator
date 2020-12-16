@@ -1,10 +1,11 @@
 from main import *
+import time
 
 def whoIs(wid):
     neighborwid = None
     i = wid + 1
     while True:
-        if i >= peopleC - 1:
+        if i == peopleC:
             i = 0
         if world[i].alive:
             neighborwid = i

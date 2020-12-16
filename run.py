@@ -40,7 +40,13 @@ def nextDay():
 
 while countAlive() > 1:
     nextDay()
-    sleep(3)
+    sleep(0.01)
 
-print("#### A GUY SURVIVED ####")
+for person in world:
+    if person.alive:
+        survivor_wid = person.wid
+        print("#### PERSON #%s GUY SURVIVED ####" % (person.wid))
 print(world)
+f = open('survivors_data.txt', 'a')
+f.write(str(world[survivor_wid].generosity)+","+str(world[survivor_wid].gluttony)+";\n")
+f.close()

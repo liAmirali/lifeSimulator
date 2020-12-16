@@ -2,6 +2,7 @@
 
 from main import *
 import neighbor
+import money
 
 def eat(wid):
     if world[wid].food >= world[wid].gluttony:
