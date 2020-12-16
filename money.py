@@ -29,7 +29,7 @@ def payTax(wid, towho):
     else:
         print("UNKNOW PAYMENT DESTIONATION")
 
-    tax = int(world[wid].generosity / 5)
+    tax = int(world[wid].generosity * taxRate)
     if world[wid].money >= tax:
         world[wid].money -= tax
         world[guy].money += tax

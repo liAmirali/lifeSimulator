@@ -1,4 +1,25 @@
-# General variable defenitions are here
+# Developed by liamirali: some day on Dec 2020; version idk
+
+# Number of people to start the life
+peopleC = 10
+
+# Amount of food and money that people will start the world with.
+foodinit = 200
+moneyinit = 200
+
+# How much money should each person pay for 1 food?
+foodPrice = 2
+
+# How should people pay tax every day?
+# Possible inputs:
+# 0) torandom => Computer selects a random alive guy (and also not himself)
+# 1) toneighbor => Computer finds the alive neighbor of 
+#    person #wid by neighbor.whoIs(wid) function
+dailyTaxMethod = 'toneighbor'
+taxRate = 0.2
+
+
+## *** DO NOT TOUCH THE FOLLOWING CODE ***
 
 # People will live in this
 world = []
@@ -6,8 +27,8 @@ world = []
 # General attitude of people
 class person:
     alive = True
-    food = 200
-    money = 200
+    food = initfood
+    money = initmoney
     def __init__(self, wid, generosity, gluttony):
         self.wid = wid
         self.generosity = generosity
@@ -19,20 +40,8 @@ class person:
         return "wid= %s, alive=%s, food=%s, money=%s, generosity=%s, gluttony=%s"\
         % (self.wid, self.alive, self.food, self.money, self.generosity, self.gluttony) + "\n"
 
-# Number of people to start the life
-peopleC = 10
-
 # Days passed
 day = 0
 
-# How much should each person pay for 1 food?
-foodPrice = 2
-
-# How should people pay tax every day?
-# Possible inputs:
-# 0) torandom => Computer selects a random alive guy (and also not himself)
-# 1) toneighbor => Computer finds the alive neighbor of 
-#    person #wid by neighbor.whoIs(wid) function
-dailyTaxMethod = 'toneighbor'
-
+# wid of the world's survivor
 survivor_wid = None
