@@ -40,7 +40,7 @@ def nextDay():
 
 while countAlive() > 1:
     nextDay()
-    sleep(0.01)
+    sleep(dayLength)
 
 for person in world:
     if person.alive:

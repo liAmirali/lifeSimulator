@@ -1,5 +1,8 @@
 # Developed by liamirali: some day on Dec 2020; version idk
 
+# How long should each day be? (in seconds)
+dayLength = 1
+
 # Number of people to start the life
 peopleC = 10
 
@@ -27,8 +30,8 @@ world = []
 # General attitude of people
 class person:
     alive = True
-    food = initfood
-    money = initmoney
+    food = foodinit 
+    money = moneyinit
     def __init__(self, wid, generosity, gluttony):
         self.wid = wid
         self.generosity = generosity
