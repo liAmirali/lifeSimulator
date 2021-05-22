@@ -6,6 +6,7 @@ from main import *
 import death
 import food
 import money
+import sqlite3 
 
 # And the creation begins..
 for wid in range(0, peopleC):
@@ -47,6 +48,14 @@ for person in world:
         survivor_wid = person.wid
         print("#### PERSON #%s GUY SURVIVED ####" % (person.wid))
 print(world)
+### Adding Sqlte3 setup
+
+connection = sqlite3.connect("LifeSimulator.db")
+cursor = connection.cursor()
+cursor.execute("CREATE TABLE people (generosity TEXT, gluttony TEXT)")
+cursor.execute(f"INSERT INTO people VALUES ({str(world[survivor_wid].generosity)}, {str(world[survivor_wid].gluttony})")
+'''
 f = open('survivors_data.txt', 'a')
 f.write(str(world[survivor_wid].generosity)+","+str(world[survivor_wid].gluttony)+";\n")
 f.close()
+'''
