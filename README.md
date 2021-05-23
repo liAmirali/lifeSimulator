@@ -48,7 +48,7 @@ Run the game:
 ```bash
 $ python3 run.py
 ```
-Survivors data will be saved by default both in a CSV file and a SQL Database.
+Survivors data will be saved by default both in a CSV file and a SQL Database.  
 To see the SQL table you have to install sqlite3 first and then enter the command below:
 ```bash
 $ sqlite db/lifeSimulator.db
@@ -79,8 +79,8 @@ $ > db/survivors_data.csv
 
 ## Configutaions
 You can change some configs of the game in `conf/config.py` file.
-There are several configurations to do.
-But you can also just skip this part and the following configutaions will be used:
+There are several configurations to do.  
+But you can also just skip this part and the following configutaions will be used:  
 ```python
 dayLength = 1
 peopleC = 10
@@ -94,17 +94,17 @@ saveMethod = {
     "csv": True
 }
 ```
-
-**What do they each mean?**
-`foodinit` and `moneyinit` are the amount of 'food' and 'money', respectively, that people will start the world with.
-`peopleC` is the number of people you're going to put in your world in the first place.
-`foodPrice` is the cost of buying 1 food.
-`dailyTaxMethod` determines how people will pay the tax.
-The amount of tax to pay for each person is equal to current money multiplied by 'taxRate'.
-If `dailyTaxMethod` is assigned to `'toneighbor'`, they will pay it to their neighbor obviously. Neighbor of the person with `wid` is the person with wid+1
-
+  
+**What do they each mean?**  
+`foodinit` and `moneyinit` are the amount of 'food' and 'money', respectively, that people will start the world with.  
+`peopleC` is the number of people you're going to put in your world in the first place.  
+`foodPrice` is the cost of buying 1 food.  
+`dailyTaxMethod` determines how people will pay the tax.  
+The amount of tax to pay for each person is equal to current money multiplied by 'taxRate'.  
+If `dailyTaxMethod` is assigned to `'toneighbor'`, they will pay it to their neighbor obviously. Neighbor of the person with `wid` is the person with wid+1  
+  
 
 ## Things you may see in the code
-`wid`: wid means world id. Each person will be born with a wid specified.
-`neighbor`: The neighbor of the person with `wid` id, is the person with `wid+1` id. And the last person's neighbor is the first person.
+`wid`: wid means world id. Each person will be born with a wid specified.  
+`neighbor`: The neighbor of the person with `wid` id, is the person with `wid+1` id. And the last person's neighbor is the first person.  
 `world`: It's just an array which people are living in.
