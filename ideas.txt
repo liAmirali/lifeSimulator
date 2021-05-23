@@ -1,0 +1,3 @@
+1) People can go to work and every day they get paid with a salary amount
+2) People will have hunger property and if the hunger is high, they have to eat food.
+3) For each row of the survived guys, there has to be row in another table which has the game configs.

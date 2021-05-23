@@ -19,7 +19,9 @@ foodPrice = 2
 # 1) toneighbor => Computer finds the alive neighbor of 
 #    person #wid by neighbor.whoIs(wid) function
 dailyTaxMethod = 'toneighbor'
-taxRate = 0.2
+
+# Tax rate has to be a number in (0,1) range
+taxRate = 0.4
 
 # How do you want to save the survivors data?
 saveMethod = {
@@ -28,6 +30,15 @@ saveMethod = {
 }
 
 
+def sayConfig():
+    print(f"dayLength = {dayLength}")
+    print(f"peopleC = {peopleC}")
+    print(f"foodinit = {foodinit}")
+    print(f"moneyinit = {moneyinit}")
+    print(f"foodPrice = {foodPrice}")
+    print(f"dailyTaxMethod = {dailyTaxMethod}")
+    print(f"taxRate = {taxRate}")
+    print(f"saveMethod = {saveMethod}")
 
 
 

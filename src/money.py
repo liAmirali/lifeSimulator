@@ -18,8 +18,6 @@ def buy(wid, what, quantity):
         print("UNKOWN THING TO BUY")
 
 
-# Everybody has to pay money to a random guy! (for no reason :D)
-# If someone didn't have the money, he'll be ignored.
 def payTax(wid, towho):
     guy = None
     if towho == 'torandom':
@@ -29,7 +27,7 @@ def payTax(wid, towho):
     else:
         print("UNKNOW PAYMENT DESTIONATION")
 
-    tax = int(world[wid].generosity * taxRate)
-    if world[wid].money >= tax:
-        world[wid].money -= tax
-        world[guy].money += tax
+    tax = int(world[wid].money * taxRate)
+    world[wid].money -= tax
+    world[guy].money += tax
+    #print(f"Person #{wid} paid {tax} money to person #{guy}")
