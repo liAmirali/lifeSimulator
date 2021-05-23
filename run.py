@@ -32,22 +32,11 @@ def nextDay():
     print("*** DAY " + str(day) + " ***")
 
     ### 1) Every alive person pays tax
-
-    # tax_amount = current_money * taxRate
-    # taxRate is a number between 0 and 1 exlusive,
-    # so they always have the money
-
     for wid in range(0, peopleC):
         if world[wid].alive:
             money.payTax(wid, dailyTaxMethod)
 
     ### 2) Every alive person has to eat
-
-    # In each meal, they have to eat as much as what their gluttony is.
-    # If their current food stock is less than that, they will try to buy the needed food
-    # If they couldn't buy food (they didn't have enough money), they will ask for food from their naighbor.
-    # If the neighbor gave them food, and they could feed themselevs ke hichi.
-    # If not death.die will be runned
     for wid in range(0, peopleC):
         if world[wid].alive:
             if food.eat(wid) == True:

@@ -10,31 +10,24 @@ It's just an idea. Think how more complicated and detailed programs can be more 
 Well, you're not supposed to actually play this game. It's a zero-player game. You can just track your world from you terminal window and enjoy. :))))
 
 ## Rules of the game:
-At the beginning of the game, people will born with a randomized "generosity" and "gluttony" coefficient.
-And also with some food and money.
-Each day, every alive person hase to pay tax.
-And then they have to 
+At the beginning of the game, people will born with a randomly generated "generosity" and "gluttony" coefficient.
+And also with some food and money determined in configs.
 
-```Python
-    def nextDay():
-    global day
-    print("*** DAY " + str(day) + " ***")
+1) Each day, every alive person hase to pay tax due to the taxMethod in configs. It can either be 'toneighbor' or 'torandom'.
+`tax_amount = current_money * taxRate`
+taxRate is a number between 0 and 1 exlusive,s o they always have the money.
 
-    for wid in range(0, peopleC):
-        if world[wid].alive:
-            money.payTax(wid, dailyTaxMethod)
-            if food.eat(wid) == True:
-                print("person #"+str(wid)+": could EAT food")
-            else:
-                print("person #%s: could NOT EAT food on day %s" % (wid, day))
-                death.die(wid, 'starvation')
-        else:
-            print("Person #"+str(wid)+": was dead already")
+2) Then they have to eat.
+In each meal, they have to eat as much as their gluttony.
+If their current food stock is less than that, they will try to buy the needed amount of food.
+If they couldn't buy food (they didn't have enough money), they will ask for food from their neighbor.
+`total_food_price = food_amount * one_food_price`
+The neighbor can help them due to their "generosity" coefficient.
+`max_possible_help = neighbor_generosity_coefficient`
+If that much food was enough, the neighbor will help and the needy guy will consume it right away.
 
-    day += 1
-    print(world)
-    return world
-```
+3) If they can't eat food for one day, they will die.
+Simple.
 
 
 ## How to run
