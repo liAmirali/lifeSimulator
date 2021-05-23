@@ -48,14 +48,30 @@ for person in world:
         survivor_wid = person.wid
         print("#### PERSON #%s GUY SURVIVED ####" % (person.wid))
 print(world)
+
 ### Adding Sqlte3 setup
 
-connection = sqlite3.connect("LifeSimulator.db")
+# Table scheama: id (Primary key) | generosity (int) | gluttony (int)
+
+table_name = 'survivors'
+connection = sqlite3.connect("db/lifeSimulator.db")
 cursor = connection.cursor()
-cursor.execute("CREATE TABLE people (generosity TEXT, gluttony TEXT)")
-cursor.execute(f"INSERT INTO people VALUES ({str(world[survivor_wid].generosity)}, {str(world[survivor_wid].gluttony})")
+cursor.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table_name}'")
+sqlite_result = cursor.fetchall()
+if len(sqlite_result) == 0:
+    cursor.execute(f"""CREATE TABLE {table_name} (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        generosity INTEGER,
+        gluttony INTEGER)
+    """)
+cursor.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table_name}'")
+cursor.execute(f"INSERT INTO {table_name} (generosity, gluttony) VALUES ({world[survivor_wid].generosity}, {world[survivor_wid].gluttony})")
+connection.commit()
+
+
+### Uncomment if you also want to save data to survivors_data.txt
 '''
-f = open('survivors_data.txt', 'a')
+f = open('db/survivors_data.txt', 'a')
 f.write(str(world[survivor_wid].generosity)+","+str(world[survivor_wid].gluttony)+";\n")
 f.close()
 '''
