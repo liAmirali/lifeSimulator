@@ -1,12 +1,17 @@
 # Run this code to start your world, your own!
+import sys
 
-from random import randint
-from time import sleep
-from main import *
+sys.path.append("./conf")
+from config import *
+
+sys.path.append("./src")
 import death
 import food
 import money
-import sqlite3 
+import saveData
+
+from random import randint
+from time import sleep
 
 # And the creation begins..
 for wid in range(0, peopleC):
@@ -49,29 +54,4 @@ for person in world:
         print("#### PERSON #%s GUY SURVIVED ####" % (person.wid))
 print(world)
 
-### Adding Sqlte3 setup
-
-# Table scheama: id (Primary key) | generosity (int) | gluttony (int)
-
-table_name = 'survivors'
-connection = sqlite3.connect("db/lifeSimulator.db")
-cursor = connection.cursor()
-cursor.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table_name}'")
-sqlite_result = cursor.fetchall()
-if len(sqlite_result) == 0:
-    cursor.execute(f"""CREATE TABLE {table_name} (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        generosity INTEGER,
-        gluttony INTEGER)
-    """)
-cursor.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table_name}'")
-cursor.execute(f"INSERT INTO {table_name} (generosity, gluttony) VALUES ({world[survivor_wid].generosity}, {world[survivor_wid].gluttony})")
-connection.commit()
-
-
-### Uncomment if you also want to save data to survivors_data.txt
-'''
-f = open('db/survivors_data.txt', 'a')
-f.write(str(world[survivor_wid].generosity)+","+str(world[survivor_wid].gluttony)+";\n")
-f.close()
-'''
+saveData.saveSurvivor(survivor_wid)
